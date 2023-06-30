@@ -10,28 +10,34 @@ function detalleCurso() {
         <>
             <Header></Header>
             <div className="container mx-auto px-4 py-8 md:py-14 md:px-28">
-                <div className="grid items-center text-white">
-                    <div className="flex flex-col items-center">
+                <div className="grid items-center text-white max-w-fit mx-auto">
+                    <div className="flex flex-col items-center mx-auto">
                         <div className="bg-black border-[#707070] border-2 my-4 h-48 md:h-96 aspect-video flex items-center justify-center">
-                            <p className="text-2xl font-bold">
-                                Video resumen del curso
-                            </p>
+                            <iframe
+                                className="w-full h-full"
+                                src="https://www.youtube.com/embed/7DO4tsuQEQk?controls=0"
+                                title="Como aprender carpintería desde cero"
+                                allow="autoplay; clipboard-write; encrypted-media; gyroscope;"
+                                allowFullScreen
+                                rel="1"
+                            ></iframe>
                         </div>
                     </div>
+                    <div className="flex flex-col">
+                        <div className="text-2xl font-bold mb-2">
+                            Titulo del curso
+                        </div>
+                        <div className="font-medium text-xl mb-1">
+                            Autor Curso
+                        </div>
+                        <div className="font-normal">Descripcion del curso</div>
+                    </div>
 
-                    <div className="text-2xl font-bold mb-2">
-                        Titulo del curso
-                    </div>
-                    <div className="font-medium text-xl mb-1">Autor Curso</div>
-                    <div className="font-normal">
-                        Descripcion del curso . Lorem ipsum dolor sit amet,
-                        consectetur adipisicing elit. Fuga, et nisi? Quasi
-                        veniam eum voluptatum libero, harum error officia rerum!
-                    </div>
                     <div className="flex flex-col items-center my-4">
                         <div className="mb-2">
                             <Button size="medium" appearance="green">
-                                Comprar por $XX.XXX CLP
+                                <p>Comprar por</p>
+                                <p>$XX.XXX CLP</p>
                             </Button>
                         </div>
                         <div className="">

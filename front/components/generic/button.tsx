@@ -74,15 +74,15 @@ Props): JSX.Element => {
         >
             {clonedIcon ? <div className="flex-none">{clonedIcon}</div> : null}
             {children ? (
-                <p
+                <div
                     className={clsx(
-                        "truncate",
+                        "truncate ",
                         textWeightBySizeProp[size],
                         textSizeBySizeProp[size]
                     )}
                 >
                     {children}
-                </p>
+                </div>
             ) : null}
         </Component>
     );

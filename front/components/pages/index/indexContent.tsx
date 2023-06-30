@@ -7,8 +7,8 @@ const IndexContent = (): JSX.Element => {
     return (
         <>
             <Header></Header>
-            <Section color="#222222" altura="auto">
-                <div className="w-full text-white flex flex-col md:flex-row items-center">
+            <Section>
+                <div className="w-full text-white flex flex-col md:flex-row items-center bg-[#222222]">
                     <div className="basis-4/12 px-8">
                         <span className="text-3xl font-bold">
                             ¡Aprende lo que necesites por expertos en el area!
@@ -19,7 +19,7 @@ const IndexContent = (): JSX.Element => {
                     </div>
                 </div>
             </Section>
-            <Section color="#222222" altura="auto">
+            <Section>
                 <div className="w-full text-white flex flex-col md:flex-row items-center">
                     <div className="basis-4/12 flex justify-center bg-black w-full">
                         <span className="h-64">imagen</span>

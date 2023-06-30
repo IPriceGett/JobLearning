@@ -7,21 +7,16 @@ type Props = {
 };
 
 const Section = ({
-    color = "#222222",
-    altura = "auto",
+    color = "[#222222]",
+    altura = "44",
     children,
 }: Props): JSX.Element => {
-    const background = `bg-[${color}]`;
-    const alto = `h-${altura}`;
+    // const background = `bg-${color}`;
+    // const alto = `h-${altura}`;
 
     return (
         <div
-            className={
-                "flex items-center justify-center p-8 md:p-20 " +
-                background +
-                " " +
-                alto
-            }
+            className={`flex items-center justify-center px-6 md:px-20 h-${altura} bg-${color}`}
         >
             {children ? children : <></>}
         </div>

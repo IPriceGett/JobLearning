@@ -135,10 +135,14 @@ const header = (): JSX.Element => {
                     push("/");
                 }}
             >
-                <div className="flex items-center  ">logo</div>
+                <div className="flex items-center ">logo</div>
                 <span className="hidden md:block">JobFinder</span>
             </div>
-            <div className="flex basis-6/12 font-medium">Buscar</div>
+            <div className="flex basis-6/12 font-medium ">
+                <div className="flex basis-3/12 bg-gray-400 rounded-full">
+                    Buscar
+                </div>
+            </div>
             <div className="flex flex-row basis-4/12 justify-around">
                 <a
                     className="cursor-pointer"

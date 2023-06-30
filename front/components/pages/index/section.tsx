@@ -1,19 +1,13 @@
 import { ReactNode } from "react";
 
 type Props = {
-    color: string;
     children?: ReactNode;
 };
 
-const Section = ({ color, children }: Props): JSX.Element => {
-    const background = `bg-[${color}]`;
-
+const Section = ({ children }: Props): JSX.Element => {
     return (
         <div
-            className={
-                "flex h-auto items-center justify-center p-8 md:p-20 " +
-                background
-            }
+            className={`flex items-center justify-center w-full text-white md:my-8 p-4 flex-col md:flex-row`}
         >
             {children ? children : <></>}
         </div>

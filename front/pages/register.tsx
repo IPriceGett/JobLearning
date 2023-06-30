@@ -9,8 +9,9 @@ import { useRouter } from "next/router";
 function Register() {
   const initialValues = {
     name: "",
-    lastname: "",
+    surname: "",
     email: "",
+    phone:"",
     password: "",
     confirmPassword: "",
     
@@ -49,16 +50,16 @@ function Register() {
               </div>
               <div className="mb-4">
                 <Field
-                  type="lastname"
-                  id="lastname"
-                  name="lastname"
+                  type="surname"
+                  id="surname"
+                  name="surname"
                   placeholder="Ingrese su apellido"
                   className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
-                    touched.lastname && errors.lastname ? "border-red-500" : "border-gray-300"
+                    touched.surname && errors.surname ? "border-red-500" : "border-gray-300"
                   }`}
                 />
                 <ErrorMessage
-                  name="lastname"
+                  name="surname"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -83,6 +84,23 @@ function Register() {
 
               <div className="mb-4">
                 <Field
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  placeholder="Ingrese su numero de telefono"
+                  className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
+                    touched.phone && errors.phone ? "border-red-500" : "border-gray-300"
+                  }`}
+                />
+                <ErrorMessage
+                  name="phone"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
+
+              <div className="mb-4">
+                <Field
                   type="password"
                   id="password"
                   name="password"
@@ -99,7 +117,6 @@ function Register() {
               </div>
 
               <div className="mb-4">
-               
                 <Field
                   type="Password"
                   id="confirmPassword"
@@ -122,7 +139,6 @@ function Register() {
 
                 <div className="flex justify-center ">
                 <button
-                  type="submit"
                   className="text-white bg-[#FF8900] hover:bg-[#e17c07]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-md px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 mt-2 w-full sm:w-auto flex-grow"
                 >
                   Regístrate

@@ -16,7 +16,6 @@ function Register() {
     
   };
 
-  const { push } = useRouter();
 
   const handleSubmit = (values) => {
     console.log(values);
@@ -26,7 +25,7 @@ function Register() {
   return (
     <>
       <Header />
-      <Section color="#222222">
+      <Section>
         <Formik
           initialValues={initialValues}
           validationSchema={registerValidation}
@@ -37,32 +36,24 @@ function Register() {
             style={{ backgroundColor: "#333333" }}>
               <h1 className="text-2xl font-bold mb-4">¡Registrate!</h1>
               <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
-                  Nombre:
-                </label>
                 <Field
                   type="name"
                   id="name"
                   name="name"
                   placeholder="Ingrese su nombre"
-                  style={{ backgroundColor: "#8E8E8E", color:"#484B6E" }}
-                  className={`w-full px-3 py-2 border rounded ${
+                  className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E]  ${
                     touched.name && errors.name ? "border-red-500" : "border-gray-300"
                   }`}
                 />
                 <ErrorMessage name="name" component="div" className="text-red-500 text-xs" />
               </div>
               <div className="mb-4">
-                <label htmlFor="lastname" className="block text-gray-700 text-sm font-bold mb-2">
-                  Apellido:
-                </label>
                 <Field
                   type="lastname"
                   id="lastname"
                   name="lastname"
                   placeholder="Ingrese su apellido"
-                  style={{ backgroundColor: "#8E8E8E", color:"#484B6E" }}
-                  className={`w-full px-3 py-2 border rounded ${
+                  className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                     touched.lastname && errors.lastname ? "border-red-500" : "border-gray-300"
                   }`}
                 />
@@ -74,16 +65,12 @@ function Register() {
               </div>
 
               <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-                  Correo electronico:
-                </label>
                 <Field
                   type="email"
                   id="email"
                   name="email"
                   placeholder="Ingrese su correo electronico"
-                  style={{ backgroundColor: "#8E8E8E", color:"#484B6E" }}
-                  className={`w-full px-3 py-2 border rounded ${
+                  className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                     touched.email && errors.email ? "border-red-500" : "border-gray-300"
                   }`}
                 />
@@ -95,16 +82,12 @@ function Register() {
               </div>
 
               <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
-                  Contraseña:
-                </label>
                 <Field
                   type="password"
                   id="password"
                   name="password"
                   placeholder="Ingrese contraseña"
-                  style={{ backgroundColor: "#8E8E8E", color:"#484B6E" }}
-                  className={`w-full px-3 py-2 border rounded ${
+                  className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                     touched.password && errors.password ? "border-red-500" : "border-gray-300"
                   }`}
                 />
@@ -116,16 +99,13 @@ function Register() {
               </div>
 
               <div className="mb-4">
-                <label htmlFor="confirmPassword" className="block text-gray-700 text-sm font-bold mb-2">
-                  Confirmar contraseña:
-                </label>
+               
                 <Field
-                  type="confirmPassword"
+                  type="Password"
                   id="confirmPassword"
                   name="confirmPassword"
                   placeholder="Ingrese contraseña"
-                  style={{ backgroundColor: "#8E8E8E", color:"#484B6E" }}
-                  className={`w-full px-3 py-2 border rounded ${
+                  className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                     touched.confirmPassword && errors.confirmPassword ? "border-red-500" : "border-gray-300"
                   }`}
                 />
@@ -136,26 +116,16 @@ function Register() {
                 />
               </div>
 
-              <div>
+                <div className="flex justify-center space-x-4 mt-2">
                     ¿Ya tienes una cuenta?¡Inicia sesión!
                 </div>
 
-              <div className="flex justify-center">
+                <div className="flex justify-center ">
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                   style={{ backgroundColor: "#FF8900" }}
+                  className="text-white bg-[#FF8900] hover:bg-[#e17c07]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-md px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 mt-2 w-full sm:w-auto flex-grow"
                 >
-                  Registrar
-                </button>
-              </div>
-
-              <div className="g-signin2" data-onsuccess="onSignIn">
-              <button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  Iniciar sesión con Google
+                  Regístrate
                 </button>
               </div>
 

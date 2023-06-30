@@ -5,7 +5,7 @@ import "../styles/tailwind.css";
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     return (
         <>
-            <main className="min-h-[94.8vh] w-screen flex flex-col bg-[#222222]">
+            <main className="min-h-[94.8vh] h-full w-screen flex flex-col bg-[#222222]">
                 <Component {...pageProps}></Component>
             </main>
         </>

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "components/shared/header";
 import Card from "components/pages/index/card";
 import Circle from "components/pages/index/circle";
 import Section from "components/pages/index/section";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
 
 function Cursos() {
     return (
@@ -37,9 +42,60 @@ function Cursos() {
                     </span>
                 </div>
                 <div className="container mx-auto bg-black flex items-center justify-center h-64">
-                    <span className="text-3xl font-bold text-white">
-                        tus cursos
-                    </span>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={10}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 4,
+                                spaceBetween: 40,
+                            },
+                            1024: {
+                                slidesPerView: 5,
+                                spaceBetween: 50,
+                            },
+                        }}
+                    >
+                        <SwiperSlide>
+                            <Card
+                                title="hola"
+                                desc="weko"
+                                photo="https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg"
+                            ></Card>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Card
+                                title="hola"
+                                desc="weko"
+                                photo="https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg"
+                            ></Card>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Card
+                                title="hola"
+                                desc="weko"
+                                photo="https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg"
+                            ></Card>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Card
+                                title="hola"
+                                desc="weko"
+                                photo="https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg"
+                            ></Card>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <Card
+                                title="hola"
+                                desc="weko"
+                                photo="https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg"
+                            ></Card>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
             </div>
         </>

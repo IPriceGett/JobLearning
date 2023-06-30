@@ -9,7 +9,7 @@ function detalleCurso() {
     return (
         <>
             <Header></Header>
-            <div className="container mx-auto px-4 py-8 md:py-14 md:px-10">
+            <div className="container mx-auto px-4 py-8 md:py-14 md:px-28">
                 <div className="grid items-center text-white">
                     <div className="flex flex-col items-center">
                         <div className="bg-black border-[#707070] border-2 my-4 h-48 md:h-96 aspect-video flex items-center justify-center">

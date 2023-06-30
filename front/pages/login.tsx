@@ -35,7 +35,6 @@ function Login() {
                   id="email"
                   name="email"
                   placeholder="Ingrese correo electrónico"
-                  style={{ color: "#484B6E" }}
                   className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                     touched.email && errors.email ? "border-red-500" : "border-gray-300"
                   }`}
@@ -123,7 +122,6 @@ function Login() {
 
                   <div className="flex justify-center ">
                 <button
-                  type="submit"
                   className="text-white bg-[#FF8900] hover:bg-[#e17c07]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-md px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 w-full sm:w-auto flex-grow"
                 >
                   ¿No tienes una cuenta?¡Registrate!

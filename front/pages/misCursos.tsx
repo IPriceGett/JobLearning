@@ -36,7 +36,32 @@ const Cursos: NextPage = () => {
 
         fetchData();
     }, []);
+    if (cursos.length === 0) {
+        return (
+            <>
+                <Header></Header>
+                <div className="container mx-auto px-6 md:px-10">
+                    <div className="container md:my-8 md:pt-8 my-8 pt-4 mx-auto">
+                        <span className="text-4xl font-bold text-white">
+                            Aun no tienes cursos comprados
+                        </span>
+                    </div>
 
+                    <div>
+                        <div className="my-6">
+                            <Button
+                                appearance="amber"
+                                size="medium"
+                                onClick={handleClick}
+                            >
+                                ¡Explora cursos!
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
     return (
         <>
             <Header></Header>
@@ -63,6 +88,6 @@ const Cursos: NextPage = () => {
             </div>
         </>
     );
-}
+};
 
 export default Cursos;

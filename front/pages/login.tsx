@@ -10,8 +10,26 @@ function Login() {
     password: ""
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     console.log(values);
+    try {
+      const response = await fetch("http://localhost:5000/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Response JSON:", data);
+      } else {
+        console.log("Error:", response.status);
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
   };
 
   return (

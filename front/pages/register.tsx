@@ -14,12 +14,31 @@ function Register() {
     phone:"",
     password: "",
     confirmPassword: "",
-    
+    login: 1,
   };
 
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
+    delete values.confirmPassword;
     console.log(values);
+    try {
+      const response = await fetch("http://localhost:5000/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Response JSON:", data);
+      } else {
+        console.log("Error:", response.status);
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
   };
 
 

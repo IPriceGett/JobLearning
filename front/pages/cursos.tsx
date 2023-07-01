@@ -19,7 +19,7 @@ const Cursos: NextPage = () => {
             });
             const jsonResult = await result.json();
 
-            setCursos(jsonResult);
+            setCursos(jsonResult.sort((a, b) => b.id - a.id));
             // console.log(jsonResult);
             // console.log(cursos);
         };

@@ -13,15 +13,15 @@ const IndexContent = (): JSX.Element => {
                     <div className="basis-8/12 flex justify-center w-full h-[500px] rounded-[10px] bg-[url('https://vivirmejor.mx/wp-content/uploads/2022/02/Herramientas-de-carpinteria-basicas.jpg')]">
                     </div>
                     <div className="basis-4/12 flex items-cente justify-center">
-                        <span className="text-3xl font-bold text-center ">
+                        <span className="text-3xl font-bold text-center font-normal">
                             ¡Aprende lo que necesites por expertos en el area!
                         </span>
                     </div>
                 </Section>
                 <Section>
                     <div className="basis-8/12">
-                        <div className="ml-[20px] flex items-cente justify-center">
-                            <p className="text-3xl font-bold text-center">
+                        <div className="mr-[20px] flex items-cente justify-center">
+                            <p className="text-3xl font-bold text-center font-normal">
                                 Los mejores trabajadores estan aqui para darte sus consejos y apoyarte en tu desarrollo a una vida mejor!
                             </p>
                         </div>

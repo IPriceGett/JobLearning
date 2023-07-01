@@ -4,8 +4,10 @@ import { Formik, Field, ErrorMessage, Form } from "formik";
 import { oficioValidation } from "Schemas/indexOficio";
 import Section from "components/pages/index/section";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 const nuevoOficio: NextPage = () => {
+  const {push} = useRouter()
   const initialValues = {
     name: "",
     description: "",
@@ -27,6 +29,7 @@ const nuevoOficio: NextPage = () => {
       if (response.ok) {
         const data = await response.json();
         console.log("Response JSON:", data);
+        push("/cursos")
       } else {
         console.log("Error:", response.status);
       }

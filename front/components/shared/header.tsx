@@ -20,10 +20,10 @@ const header = (): JSX.Element => {
 
   useEffect(() => {
     let user = getUser();
-    if (user) setUsuario((user!= null ? user:""));
+    if (user) setUsuario(user != null ? user : "");
   }, []);
   return (
-    <header className="flex flex-row items-center w-full h-[60px] bg-[#333333] px-4 text-white font-bold">
+    <header className="flex flex-row items-center w-full h-[60px] bg-[#333333] px-4 text-white font-normal">
       <div className="left flex items-center basis-7/12">
         <div
           className="logo flex cursor-pointer basis-4/12"
@@ -42,32 +42,24 @@ const header = (): JSX.Element => {
       </div>
 
       <div className="right flex-row basis-5/12 justify-end lg:space-x-4 xl:space-x-8 hidden lg:flex">
-        <a
-          className="cursor-pointer"
-          onClick={() => {
-            push("/cursos");
-          }}
-        >
-          Cursos
-        </a>
-        <a
-          className="cursor-pointer"
-          onClick={() => {
-            push("/misCursos");
-          }}
-        >
-          Mis cursos
-        </a>
-        <a
-          className="cursor-pointer"
-          onClick={() => {
-            push("/contacto");
-          }}
-        >
-          Contacto
-        </a>
-        {usuario != null ? (
+        {usuario != "" ? (
           <>
+            <a
+              className="cursor-pointer"
+              onClick={() => {
+                push("/cursos");
+              }}
+            >
+              Cursos
+            </a>
+            <a
+              className="cursor-pointer"
+              onClick={() => {
+                push("/misCursos");
+              }}
+            >
+              Mis cursos
+            </a>
             <a
               className="cursor-pointer"
               onClick={() => {
@@ -79,7 +71,15 @@ const header = (): JSX.Element => {
             <a
               className="cursor-pointer"
               onClick={() => {
-                cerrarSesion()
+                push("/contacto");
+              }}
+            >
+              Contacto
+            </a>
+            <a
+              className="cursor-pointer"
+              onClick={() => {
+                cerrarSesion();
               }}
             >
               Cerrar sesion
@@ -87,6 +87,14 @@ const header = (): JSX.Element => {
           </>
         ) : (
           <>
+            <a
+              className="cursor-pointer"
+              onClick={() => {
+                push("/contacto");
+              }}
+            >
+              Contacto
+            </a>
             <a
               className="cursor-pointer"
               onClick={() => {

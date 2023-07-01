@@ -22,7 +22,7 @@ const Slides = ({ cursos }) => {
                 spaceBetween={10}
                 // loop={true}
                 // navigation
-                // centeredSlides={true}
+                //centeredSlides={true}
                 // pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
                 breakpoints={{
@@ -49,7 +49,7 @@ const Slides = ({ cursos }) => {
                     <SwiperSlide key={index} className="cursor-pointer mx-auto">
                         <div
                             onClick={() => {
-                                push("/previewCurso");
+                                push("/previewCurso?id="+curso.id);
                             }}
                         >
                             <Card

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "components/shared/header";
 import Card from "components/pages/index/card";
 import Circle from "components/pages/index/circle";
@@ -9,9 +9,52 @@ import { NextPage } from "next";
 
 const detalleCurso: NextPage = () => {
     const { push } = useRouter();
-    const handleClick = () => {
-        push("/detalleCurso");
+    const [job, setJob] = useState({"price":0, id:0})
+
+    const handleClick = async () => {
+        try {
+          const id = new URLSearchParams(window.location.search)
+          const response = await fetch("http://localhost:5000/userjob/create", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token")
+            },
+            body: JSON.stringify({"job":id.get("id")}) ,
+          });
+      
+          if (response.ok) {
+            push("/misCursos");
+          } else {
+            console.log("Error:", response.status);
+          }
+        } catch (error) {
+          console.log("Error:", error);
+        }
     };
+    
+    useEffect(()=>{
+        const fetchJob = async () =>{
+            const id = new URLSearchParams(window.location.search)
+            console.log(id.get("id"))
+            const response = await fetch("http://localhost:5000/job/byId", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  authorization: localStorage.getItem("token")
+                },
+                body: JSON.stringify({"id":id.get("id")}),
+              });
+          
+              if (response.ok) {
+                const data = await response.json();
+                setJob(data);
+              } else {
+                console.log("Error:", response.status);
+              }
+        }
+        fetchJob()
+    },[])
 
     return (
         <>
@@ -45,10 +88,10 @@ const detalleCurso: NextPage = () => {
                             <Button
                                 size="medium"
                                 appearance="green"
-                                onClick={handleClick}
+                                onClick={()=>{handleClick()}}
                             >
                                 <p>Comprar por</p>
-                                <p>$XX.XXX CLP</p>
+                                <p>${job.price} CLP</p>
                             </Button>
                         </div>
                         <div className="">

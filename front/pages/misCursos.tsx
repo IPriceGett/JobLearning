@@ -5,8 +5,9 @@ import Section from "components/pages/index/section";
 import Slides from "components/pages/index/slides";
 import Button from "../components/generic/button";
 import { useRouter } from "next/router";
+import { NextPage } from "next";
 
-function Cursos() {
+const Cursos: NextPage = () => {
     const { push } = useRouter();
     const handleClick = () => {
         push("/cursos");

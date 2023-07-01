@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "components/shared/header";
 import Section from "components/pages/index/section";
+import { NextPage } from "next";
 
-function detalleCurso() {
+const detalleCurso: NextPage = () => {
     return (
         <>
             <Header></Header>

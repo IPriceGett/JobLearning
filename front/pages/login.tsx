@@ -3,8 +3,11 @@ import Header from "components/shared/header";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { loginValidation } from "Schemas/IndexLogin";
 import Section from "components/pages/index/section";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
 
-function Login() {
+const Login: NextPage = () => {
+  const { push } = useRouter();
   const initialValues = {
     email: "",
     password: ""
@@ -25,6 +28,7 @@ function Login() {
         const data = await response.json();
         console.log("Response JSON:", data);
         localStorage.setItem("token", data.token);
+        push("/");
       } else {
         console.log("Error:", response.status);
       }
@@ -44,7 +48,7 @@ function Login() {
         >
           {({ touched, errors }) => (
             <Form
-              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 md:w-1/3"
               style={{ backgroundColor: "#333333" }}
             >
               <h1 className="text-2xl font-bold mb-4">¡Inicia sesión!</h1>
@@ -80,7 +84,7 @@ function Login() {
               <div className="flex justify-center space-x-4 mt-2">
                 <button
                   type="submit"
-                  className="text-white bg-[#FF8900] hover:bg-[#e17c07]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text- px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 w-full sm:w-auto flex-grow"
+                  className="text-white bg-green-500 hover:bg-green-500/80 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text- px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 w-full sm:w-auto flex-grow"
                 >
                   Iniciar sesión
                 </button>
@@ -143,7 +147,7 @@ function Login() {
                 <button
                   className="text-white bg-[#FF8900] hover:bg-[#e17c07]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-md px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 w-full sm:w-auto flex-grow"
                 >
-                  ¿No tienes una cuenta?¡Registrate!
+                  ¿No tienes una cuenta? ¡Registrate!
                 </button>
               </div>
 

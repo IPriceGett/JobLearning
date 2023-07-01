@@ -1,5 +1,5 @@
 const getUser = () => {
-    const user = JSON.parse(localStorage.getItem("user"))
+    const user = localStorage.getItem("token")
     return user
 }
 

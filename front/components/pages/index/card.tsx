@@ -13,7 +13,7 @@ const card = ({ title, desc, photo }: Props): JSX.Element => {
                 <span className="mt-auto text-3xl text-bold ">{title}</span>
                 <img
                     src={photo}
-                    className="h-44 aspect-video bg-black mx-auto"
+                    className="h-44 aspect-video bg-black mx-auto rounded-[5px]"
                 ></img>
                 <div className="pb-8 ml-0">
                     <p className="text-xl text-bold ">{desc}</p>

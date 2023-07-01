@@ -3,8 +3,9 @@ import Header from "components/shared/header";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { oficioValidation } from "Schemas/indexOficio";
 import Section from "components/pages/index/section";
+import { NextPage } from "next";
 
-function nuevoOficio() {
+const nuevoOficio: NextPage = () => {
   const initialValues = {
     name: "",
     description: "",
@@ -45,7 +46,7 @@ function nuevoOficio() {
         >
           {({ touched, errors }) => (
             <Form
-              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+              className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 md:w-1/3"
               style={{ backgroundColor: "#333333" }}
             >
               <h1 className="text-2xl font-bold mb-4">¡Crea un oficio!</h1>

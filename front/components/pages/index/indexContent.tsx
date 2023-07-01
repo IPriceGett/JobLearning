@@ -8,27 +8,25 @@ const IndexContent = (): JSX.Element => {
         <>
             <Header></Header>
             <div className="container mx-auto md:my-10 my-2 md:px-10 px-4">
+                <span className="text-3xl font-bold text-white mt-[20px]">Bienvenido a e-JobLearning!</span>
                 <Section>
-                    <div className="basis-4/12">
-                        <span className="text-3xl font-bold">
+                    <div className="basis-8/12 flex justify-center w-full h-[500px] rounded-[10px] bg-[url('https://vivirmejor.mx/wp-content/uploads/2022/02/Herramientas-de-carpinteria-basicas.jpg')]">
+                    </div>
+                    <div className="basis-4/12 flex items-cente justify-center">
+                        <span className="text-3xl font-bold text-center ">
                             ¡Aprende lo que necesites por expertos en el area!
                         </span>
                     </div>
-                    <div className="basis-8/12 flex justify-center bg-black w-full">
-                        <span className="h-64">imagen</span>
-                    </div>
                 </Section>
                 <Section>
-                    <div className="basis-4/12 flex justify-center bg-black w-full">
-                        <span className="h-64">imagen</span>
-                    </div>
                     <div className="basis-8/12">
-                        <div>
-                            <p className="text-3xl font-bold">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Soluta, sequi!
+                        <div className="ml-[20px] flex items-cente justify-center">
+                            <p className="text-3xl font-bold text-center">
+                                Los mejores trabajadores estan aqui para darte sus consejos y apoyarte en tu desarrollo a una vida mejor!
                             </p>
                         </div>
+                    </div>
+                    <div className="basis-6/12 flex justify-center w-full  h-[300px] rounded-[10px] mt-[30px] bg-[url('https://mitsubishi-motors.com.co/blog/wp-content/uploads/2020/05/dia-internacional-del-trabajador.jpg')]">
                     </div>
                 </Section>
             </div>

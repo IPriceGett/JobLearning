@@ -5,8 +5,9 @@ import Circle from "components/pages/index/circle";
 import Section from "components/pages/index/section";
 import Button from "../components/generic/button";
 import { useRouter } from "next/router";
+import { NextPage } from "next";
 
-function detalleCurso() {
+const detalleCurso: NextPage = () => {
     const { push } = useRouter();
     const handleClick = () => {
         push("/detalleCurso");

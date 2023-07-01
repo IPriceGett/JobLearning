@@ -4,9 +4,11 @@ import { Formik, Field, ErrorMessage, Form } from "formik";
 import { registerValidation } from "Schemas/IndexRegister";
 import Section from "components/pages/index/section";
 import { useRouter } from "next/router";
+import { NextPage } from "next";
 
 
-function Register() {
+const Register: NextPage = () => {
+  const { push } = useRouter();
   const initialValues = {
     name: "",
     surname: "",
@@ -20,7 +22,6 @@ function Register() {
 
   const handleSubmit = async (values) => {
     delete values.confirmPassword;
-    console.log(values);
     try {
       const response = await fetch("http://localhost:5000/user/register", {
         method: "POST",
@@ -33,6 +34,8 @@ function Register() {
       if (response.ok) {
         const data = await response.json();
         console.log("Response JSON:", data);
+        push("/")
+        
       } else {
         console.log("Error:", response.status);
       }
@@ -52,7 +55,7 @@ function Register() {
           onSubmit={handleSubmit}
         >
           {({ touched, errors }) => (
-            <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 md:w-1/3"
             style={{ backgroundColor: "#333333" }}>
               <h1 className="text-2xl font-bold mb-4">¡Registrate!</h1>
               <div className="mb-4">

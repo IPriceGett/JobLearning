@@ -1,10 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "components/shared/header";
 import Circle from "components/pages/index/circle";
 import Section from "components/pages/index/section";
 import Slides from "components/pages/index/slides";
 
 function Cursos() {
+    const [cursos, setCursos] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch("http://localhost:5000/job/list", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: localStorage.getItem("token"),
+                },
+            });
+            const jsonResult = await result.json();
+
+            setCursos(jsonResult);
+            // console.log(jsonResult);
+            // console.log(cursos);
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <>
             <Header></Header>
@@ -15,7 +36,7 @@ function Cursos() {
                     </span>
                 </div>
                 <div className="container mx-auto  flex items-center justify-center h-64">
-                    <Slides></Slides>
+                    <Slides cursos={cursos}></Slides>
                 </div>
                 <div className="container mx-auto flex items-center justify-start h-36">
                     <span className="text-3xl font-bold text-white">
@@ -23,7 +44,7 @@ function Cursos() {
                     </span>
                 </div>
                 <div className="container mx-auto  flex items-center justify-center h-64">
-                    <Slides></Slides>
+                    <Slides cursos={cursos}></Slides>
                 </div>
             </div>
         </>

@@ -11,18 +11,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-function Slides() {
+const Slides = ({ cursos }) => {
     const { push } = useRouter();
-
-    const items = [
-        "Item 1",
-        "Item 2",
-        "Item 3",
-        "Item 4",
-        "Item 5",
-        "Item 6",
-        "Item 6",
-    ];
 
     return (
         <>
@@ -30,7 +20,7 @@ function Slides() {
                 modules={[Navigation, Pagination, Scrollbar]}
                 slidesPerView={1}
                 spaceBetween={10}
-                loop={true}
+                // loop={true}
                 // navigation
                 // centeredSlides={true}
                 // pagination={{ clickable: true }}
@@ -55,7 +45,7 @@ function Slides() {
                     },
                 }}
             >
-                {items.map((item, index) => (
+                {cursos.map((curso, index) => (
                     <SwiperSlide key={index} className="cursor-pointer mx-auto">
                         <div
                             onClick={() => {
@@ -63,8 +53,9 @@ function Slides() {
                             }}
                         >
                             <Card
-                                title="Titulo"
-                                desc="Autor"
+                                title={curso.name}
+                                desc={curso.description}
+                                precio={curso.price}
                                 photo="https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg"
                             ></Card>
                         </div>
@@ -73,6 +64,6 @@ function Slides() {
             </Swiper>
         </>
     );
-}
+};
 
 export default Slides;

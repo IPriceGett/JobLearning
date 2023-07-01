@@ -185,7 +185,7 @@ const header = (): JSX.Element => {
                         push("/register");
                     }}
                 >
-                    Registrate
+                    Regístrate
                 </a>
             </div>
         </header>

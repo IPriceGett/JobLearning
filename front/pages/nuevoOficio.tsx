@@ -12,8 +12,26 @@ function nuevoOficio() {
     category: "",
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     console.log(values);
+    try {
+      const response = await fetch("http://localhost:5000/job/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", authorization: localStorage.getItem("token")
+        },
+        body: JSON.stringify(values),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Response JSON:", data);
+      } else {
+        console.log("Error:", response.status);
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
   };
 
   return (
@@ -92,7 +110,7 @@ function nuevoOficio() {
                   }`}
                 >
                     <option value="" disabled selected>-Seleccione una categoría-</option>
-                    <option value="carpinteria">Carpinteria</option>
+                    <option value={1}>Carpinteria</option>
                 </Field>
                 <ErrorMessage
                   name="category"

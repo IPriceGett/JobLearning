@@ -3,8 +3,9 @@ import Header from "components/shared/header";
 import Circle from "components/pages/index/circle";
 import Section from "components/pages/index/section";
 import Slides from "components/pages/index/slides";
+import { NextPage } from "next";
 
-function Cursos() {
+const Cursos: NextPage = () => {
     const [cursos, setCursos] = useState([]);
 
     useEffect(() => {
@@ -49,6 +50,6 @@ function Cursos() {
             </div>
         </>
     );
-}
+};
 
 export default Cursos;

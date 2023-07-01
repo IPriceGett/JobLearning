@@ -129,21 +129,24 @@ const header = (): JSX.Element => {
     }
     return (
         <header className="flex flex-row items-center w-full h-[60px] bg-[#333333] px-4 text-white font-bold">
-            <div
-                className="flex cursor-pointer basis-2/12"
-                onClick={() => {
-                    push("/");
-                }}
-            >
-                <div className="flex items-center ">logo</div>
-                <span className="hidden md:block">JobFinder</span>
-            </div>
-            <div className="flex basis-6/12 font-medium ">
-                <div className="flex basis-3/12 bg-gray-400 rounded-full">
-                    Buscar
+            <div className="left flex items-center basis-7/12">
+                <div
+                    className="logo flex cursor-pointer basis-4/12"
+                    onClick={() => {
+                        push("/");
+                    }}
+                >
+                    <div className="flex items-center mx-4">logo</div>
+                    <span className="hidden md:block">eJob Learning</span>
+                </div>
+                <div className="busqueda basis-8/12">
+                    <div className="flex items-center bg-[#8E8E8E] rounded-full text-md font-bold px-4 text-[#464646]">
+                        ¿Que buscas?
+                    </div>
                 </div>
             </div>
-            <div className="flex flex-row basis-4/12 justify-around">
+
+            <div className="right flex-row basis-5/12 justify-end lg:space-x-4 xl:space-x-8 hidden lg:flex">
                 <a
                     className="cursor-pointer"
                     onClick={() => {
@@ -151,6 +154,14 @@ const header = (): JSX.Element => {
                     }}
                 >
                     Cursos
+                </a>
+                <a
+                    className="cursor-pointer"
+                    onClick={() => {
+                        push("/misCursos");
+                    }}
+                >
+                    Mis cursos
                 </a>
                 <a
                     className="cursor-pointer"

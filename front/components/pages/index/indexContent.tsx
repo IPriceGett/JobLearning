@@ -7,7 +7,7 @@ const IndexContent = (): JSX.Element => {
     return (
         <>
             <Header></Header>
-            <div className="container mx-auto md:my-10 my-2">
+            <div className="container mx-auto md:my-10 my-2 md:px-10 px-4">
                 <Section>
                     <div className="basis-4/12">
                         <span className="text-3xl font-bold">

@@ -8,13 +8,18 @@ type Props = {
 
 const card = ({ title, desc, photo }: Props): JSX.Element => {
     return (
-        <div className="grid items-center py-2 aspect-video max-h-40 p-2 justify-center bg-[#a6a6a6]">
-            <div className="h-auto">
-                <img src={photo} className="h-fit bg-white"></img>
+        <div className="flex items-center justify-center">
+            <div className="flex flex-col items-start max-w-sm p-2 space-y-2 text-white">
+                <span className="mt-auto text-3xl text-bold ">{title}</span>
+                <img
+                    src={photo}
+                    className="h-44 aspect-video bg-black mx-auto"
+                ></img>
+                <div className="pb-8 ml-0">
+                    <p className="text-xl text-bold ">{desc}</p>
+                    <p className="text-lg text-bold ">$XX.XXX CLP</p>
+                </div>
             </div>
-            <span className="text-left text-2xl">{title}</span>
-            <p>{desc}</p>
-            <p>precio</p>
         </div>
     );
 };

@@ -1,17 +1,17 @@
-import React from "react";
-import Card from "components/pages/index/card";
-import { useRouter } from "next/router";
+import React from 'react';
+import Card from 'components/pages/index/card';
+import { useRouter } from 'next/router';
 
 // Import Swiper React components
-import { Navigation, Pagination, Scrollbar } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
-const Slides = ({ cursos }) => {
+const Slides = ({ jobs }) => {
     const { push } = useRouter();
 
     return (
@@ -45,22 +45,35 @@ const Slides = ({ cursos }) => {
                     },
                 }}
             >
-                {cursos.map((curso, index) => (
-                    <SwiperSlide key={index} className="cursor-pointer mx-auto">
-                        <div
-                            onClick={() => {
-                                push("/previewCurso?id="+curso.id);
-                            }}
+                {jobs.map(
+                    (
+                        job: {
+                            id: string;
+                            name: string;
+                            description: string;
+                            price: number;
+                        },
+                        index: React.Key
+                    ) => (
+                        <SwiperSlide
+                            key={index}
+                            className='cursor-pointer mx-auto'
                         >
-                            <Card
-                                title={curso.name}
-                                desc={curso.description}
-                                precio={curso.price}
-                                photo="https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg"
-                            ></Card>
-                        </div>
-                    </SwiperSlide>
-                ))}
+                            <div
+                                onClick={() => {
+                                    push('/previewCurso?id=' + job.id);
+                                }}
+                            >
+                                <Card
+                                    title={job.name}
+                                    desc={job.description}
+                                    precio={job.price}
+                                    photo='https://www.mndelgolfo.com/blog/wp-content/uploads/2018/03/Todo-lo-que-necesitas-saber-para-armar-tu-taller-de-carpinteri%CC%81a1.jpg'
+                                ></Card>
+                            </div>
+                        </SwiperSlide>
+                    )
+                )}
             </Swiper>
         </>
     );

@@ -9,27 +9,6 @@ import Slide from 'components/generic/slide';
 import { useGet } from 'hooks/useGet';
 
 const Cursos: NextPage = () => {
-    // const [jobs, setJobs] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const result = await fetch('http://localhost:5000/job/list', {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 authorization: localStorage.getItem('token'),
-    //             },
-    //         });
-    //         const jsonResult = await result.json();
-
-    //         // setJobs(jsonResult.sort((a, b) => b.id - a.id));
-    //         setJobs(jsonResult);
-    //         // console.log(jsonResult);
-    //         // console.log(cursos);
-    //     };
-
-    //     fetchData();
-    // }, []);
     const url = 'http://localhost:5000/job/list';
     const { jobs, loading } = useGet({ url });
     const url2 = 'http://localhost:5000/userjob/getJobs';

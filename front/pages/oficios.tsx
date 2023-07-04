@@ -6,7 +6,7 @@ import { NextPage } from 'next';
 import JobsSection from 'components/generic/JobsSection';
 import { SwiperSlide } from 'swiper/react';
 import Slide from 'components/generic/slide';
-import { useFetch } from 'hooks/useFetch';
+import { useGet } from 'hooks/useGet';
 
 const Cursos: NextPage = () => {
     // const [jobs, setJobs] = useState([]);
@@ -31,9 +31,9 @@ const Cursos: NextPage = () => {
     //     fetchData();
     // }, []);
     const url = 'http://localhost:5000/job/list';
-    const { jobs, loading } = useFetch({ url });
+    const { jobs, loading } = useGet({ url });
     const url2 = 'http://localhost:5000/userjob/getJobs';
-    const { jobs: jobs2, loading: loading2 } = useFetch({ url: url2 });
+    const { jobs: jobs2, loading: loading2 } = useGet({ url: url2 });
 
     return (
         <>

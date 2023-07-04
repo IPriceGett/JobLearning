@@ -4,7 +4,7 @@ type Props = {
     url: string;
 };
 
-export const useFetch = ({ url }: Props): { jobs: any; loading: boolean } => {
+export const useGet = ({ url }: Props): { jobs: any; loading: boolean } => {
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
 

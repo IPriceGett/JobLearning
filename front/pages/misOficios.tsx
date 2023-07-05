@@ -16,7 +16,7 @@ const Cursos: NextPage = () => {
     };
 
     const url = 'http://localhost:5000/userjob/getJobs';
-    const { jobs, loading } = useGet({ url });
+    const { jobs, isLoading } = useGet({ url });
     // console.log(jobs, loading);
 
     // if (jobs.length === 0) {
@@ -51,7 +51,7 @@ const Cursos: NextPage = () => {
             <Header></Header>
             <div className='container mx-auto px-6 md:px-10'>
                 <JobsSection tittle='Tus oficios'>
-                    {loading && (
+                    {isLoading && (
                         <span className='text-xl font-bold text-white'>
                             Cargando...
                         </span>

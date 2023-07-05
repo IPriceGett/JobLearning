@@ -10,16 +10,16 @@ import { useGet } from 'hooks/useGet';
 
 const Cursos: NextPage = () => {
     const url = 'http://localhost:5000/job/list';
-    const { jobs, loading } = useGet({ url });
+    const { jobs, isLoading } = useGet({ url });
     const url2 = 'http://localhost:5000/userjob/getJobs';
-    const { jobs: jobs2, loading: loading2 } = useGet({ url: url2 });
+    const { jobs: jobs2, isLoading: loading2 } = useGet({ url: url2 });
 
     return (
         <>
             <Header></Header>
             <div className='container mx-auto my-4 px-4 md:px-10'>
                 <JobsSection tittle='Oficios más populares'>
-                    {loading && (
+                    {isLoading && (
                         <span className='text-xl font-bold text-white'>
                             Cargando...
                         </span>

@@ -1,34 +1,32 @@
 import { useState, useEffect } from 'react';
+import { getJobs } from 'services/jobs';
 
 type Props = {
     url: string;
 };
 
-export const useGet = ({ url }: Props): { jobs: any; loading: boolean } => {
+export const useGet = ({ url }: Props): { jobs: any; isLoading: boolean } => {
     const [jobs, setJobs] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setLoading(true);
-        const fetchData = async () => {
-            const result = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    authorization: localStorage.getItem('token'),
-                },
-            });
-            const jsonResult = await result.json();
+        setIsLoading(true);
+        // const fetchData = async () => {
+        //     const result = await fetch(url, {
+        //         method: 'GET',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             authorization: localStorage.getItem('token'),
+        //         },
+        //     });
+        //     const jsonResult = await result.json();
 
-            setJobs(jsonResult);
-            setLoading(false);
+        //     setJobs(jsonResult);
+        //     setIsLoading(false);
+        // };
 
-            // console.log(jsonResult);
-            // console.log(cursos);
-        };
-
-        fetchData();
+        // fetchData();
     }, []);
 
-    return { jobs, loading };
+    return { jobs, isLoading };
 };

@@ -9,7 +9,7 @@ import { NextPage } from 'next';
 
 const detalleCurso: NextPage = () => {
     const { push } = useRouter();
-    const [job, setJob] = useState({ price: 0, id: 0 });
+    const [job, setJob] = useState({ price: 0, id: 0, name: '', description: '' });
 
     const handleClick = async () => {
         try {
@@ -27,7 +27,7 @@ const detalleCurso: NextPage = () => {
             );
 
             if (response.ok) {
-                push('/misCursos');
+                push('/misOficios');
             } else {
                 console.log('Error:', response.status);
             }
@@ -51,6 +51,7 @@ const detalleCurso: NextPage = () => {
 
             if (response.ok) {
                 const data = await response.json();
+                console.log(data)
                 setJob(data);
             } else {
                 console.log('Error:', response.status);
@@ -78,12 +79,12 @@ const detalleCurso: NextPage = () => {
                     </div>
                     <div className='flex flex-col'>
                         <div className='text-2xl font-bold mb-2'>
-                            Titulo del curso
+                            {job.name}
                         </div>
                         <div className='font-medium text-xl mb-1'>
-                            Autor Curso
+                            Ignacio Price
                         </div>
-                        <div className='font-normal'>Descripcion del curso</div>
+                        <div className='font-normal'>{job.description}</div>
                     </div>
 
                     <div className='flex flex-col items-center my-4'>

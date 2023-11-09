@@ -11,21 +11,21 @@ export const useGet = ({ url }: Props): { jobs: any; isLoading: boolean } => {
 
     useEffect(() => {
         setIsLoading(true);
-        // const fetchData = async () => {
-        //     const result = await fetch(url, {
-        //         method: 'GET',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             authorization: localStorage.getItem('token'),
-        //         },
-        //     });
-        //     const jsonResult = await result.json();
+        const fetchData = async () => {
+            const result = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: localStorage.getItem('token'),
+                },
+            });
+            const jsonResult = await result.json();
 
-        //     setJobs(jsonResult);
-        //     setIsLoading(false);
-        // };
+            setJobs(jsonResult);
+            setIsLoading(false);
+        };
 
-        // fetchData();
+        fetchData();
     }, []);
 
     return { jobs, isLoading };

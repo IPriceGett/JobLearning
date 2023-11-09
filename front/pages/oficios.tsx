@@ -11,7 +11,7 @@ import { useGet } from 'hooks/useGet';
 const Cursos: NextPage = () => {
     const url = 'http://localhost:5000/job/list';
     const { jobs, isLoading } = useGet({ url });
-    const url2 = 'http://localhost:5000/userjob/getJobs';
+    const url2 = 'http://localhost:5000/job/list';
     const { jobs: jobs2, isLoading: loading2 } = useGet({ url: url2 });
 
     return (

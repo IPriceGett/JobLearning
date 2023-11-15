@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import getUser from 'utils/session';
 import { useRouter } from 'next/router';
+import SearchBar from 'components/generic/SearchBar';
 
 const header = (): JSX.Element => {
     const { push } = useRouter();
@@ -38,7 +39,7 @@ const header = (): JSX.Element => {
                 </div>
                 <div className='busqueda basis-8/12'>
                     <div className='flex items-center bg-[#8E8E8E] rounded-full text-md font-bold px-4 text-[#464646]'>
-                        ¿Que buscas?
+                        <SearchBar></SearchBar>
                     </div>
                 </div>
             </div>

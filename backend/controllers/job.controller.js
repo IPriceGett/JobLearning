@@ -52,6 +52,19 @@ const getJob = async (req, res, next) => {
     }
 };
 
+const getJobByKey = async (req, res, next) => {
+    try{
+        var key = req.body.key;
+        // console.log(req.body);
+        db.query("SELECT * FROM job WHERE name LIKE '%?%' or description LIKE '%?%'", [id], (error, results) => {
+            if (error) res.status(404).send('Error al obtener ofertas');
+            res.status(200).send(results[0]);
+        });
+    }catch{
+        res.status(404).send('Error al obtener oficios');
+    }
+};
+
 const list = async (req, res, next) => {
     try{
         var pass = req.body.pass;
@@ -98,4 +111,5 @@ module.exports = {
     getJob,
     getByOwner,
     deleteJob,
+    getJobByKey,
 };

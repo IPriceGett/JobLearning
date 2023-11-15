@@ -8,7 +8,7 @@ route.post("/create",validation.verifyToken, jobController.create);
 
 route.get("/list",validation.verifyToken, jobController.list);
 
-route.get("/search",validation.verifyToken, jobController.getJobByKey);
+route.post("/search",validation.verifyToken, jobController.getJobByKey);
 
 route.post("/byOwner",validation.verifyToken, jobController.getByOwner);
 

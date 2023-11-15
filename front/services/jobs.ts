@@ -16,13 +16,14 @@ export const getJobs = () => {
 };
 
 export const getJobSearch = async (keyword: string) => {
-    const url = 'http://localhost:5000/userjob/getJobs';
+    const url = 'http://localhost:5000/job/search';
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),
         },
+        body: JSON.stringify({ key: keyword }),
     };
     return fetch(url, options)
         .then((response) => response.json())

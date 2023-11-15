@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getJobsList } from 'services/jobs';
+import { getJobSearch, getJobsList } from 'services/jobs';
 import { Job } from 'types/types';
 
 
@@ -9,7 +9,7 @@ export const useGet = (): { jobs: Job[]; isLoading: boolean } => {
 
     useEffect(() => {
         setIsLoading(true);
-        getJobsList()
+        getJobSearch('Of')
             .then((data) => {
                 setJobs(data);
                 setIsLoading(false);

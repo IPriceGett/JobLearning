@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { getJobsList } from 'services/jobs';
+import { getJobs} from 'services/jobs';
 import { Job } from 'types/types';
 
 
-export const useGet = (): { jobs: Job[]; isLoading: boolean } => {
+export const useMisOficios = (): { jobs: Job[]; isLoading: boolean } => {
     const [jobs, setJobs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        getJobsList()
+        getJobs()
             .then((data) => {
                 setJobs(data);
                 setIsLoading(false);

@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
-import { getJobsList } from 'services/jobs';
+import { getJobSearch } from 'services/jobs';
 import { Job } from 'types/types';
 
 
-export const useGet = (): { jobs: Job[]; isLoading: boolean } => {
+
+export const useFilter = (keyword : string): { jobs: Job[]; isLoading: boolean } => {
     const [jobs, setJobs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        getJobsList()
+        getJobSearch(keyword)
             .then((data) => {
-                setJobs(data);
+                setJobs(data.data);
                 setIsLoading(false);
             })
             .catch((error) => {

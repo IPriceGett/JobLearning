@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
 import Header from 'components/shared/header';
-import Section from 'components/pages/index/section';
 import Slides from 'components/generic/slides';
 import { NextPage } from 'next';
 import JobsSection from 'components/generic/JobsSection';
@@ -9,10 +7,8 @@ import Slide from 'components/generic/slide';
 import { useGet } from 'hooks/useGet';
 
 const Cursos: NextPage = () => {
-    const url = 'http://localhost:5000/job/list';
-    const { jobs, isLoading } = useGet({ url });
-    const url2 = 'http://localhost:5000/job/list';
-    const { jobs: jobs2, isLoading: loading2 } = useGet({ url: url2 });
+    const { jobs, isLoading } = useGet();
+    const { jobs: jobs2, isLoading: loading2 } = useGet();
 
     return (
         <>

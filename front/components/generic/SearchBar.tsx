@@ -28,7 +28,7 @@ const SearchBar = () => {
                         <input
                             type='text'
                             name='search'
-                            placeholder='¿Qué buscas?'
+                            placeholder='Buscar'
                             className='w-full  bg-[#8E8E8E] text-[#464646] text-md font-semibold focus:outline-none placeholder-[#464646]'
                             onChange={handleChange}
                             value={keyword}

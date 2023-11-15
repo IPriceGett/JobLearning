@@ -54,14 +54,14 @@ const nuevoOficio: NextPage = () => {
                             style={{ backgroundColor: '#333333' }}
                         >
                             <h1 className='text-2xl font-bold mb-4'>
-                                ¡Crea un oficio!
+                                ¡Crea un curso!
                             </h1>
                             <div className='mb-4'>
                                 <Field
                                     type='text'
                                     id='name'
                                     name='name'
-                                    placeholder='Ingrese el nombre del oficio'
+                                    placeholder='Ingrese el título del curso'
                                     className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                                         touched.name && errors.name
                                             ? 'border-red-500'
@@ -81,7 +81,7 @@ const nuevoOficio: NextPage = () => {
                                     as='textarea'
                                     id='description'
                                     name='description'
-                                    placeholder='Ingrese una descripcion'
+                                    placeholder='Ingrese una descripción del curso'
                                     className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] resize-y overflow-auto ${
                                         touched.description &&
                                         errors.description
@@ -101,7 +101,7 @@ const nuevoOficio: NextPage = () => {
                                     type='price'
                                     id='price'
                                     name='price'
-                                    placeholder='Ingrese el precio del oficio'
+                                    placeholder='Ingrese el precio del curso'
                                     className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                                         touched.price && errors.price
                                             ? 'border-red-500'
@@ -121,7 +121,7 @@ const nuevoOficio: NextPage = () => {
                                     as='select'
                                     id='category'
                                     name='category'
-                                    placeholder='Ingrese una categoria'
+                                    placeholder='Seleccione una categoría para el curso'
                                     className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                                         touched.category && errors.category
                                             ? 'border-red-500'

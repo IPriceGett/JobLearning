@@ -9,7 +9,7 @@ import JobsSection from 'components/generic/JobsSection';
 import Slide from 'components/generic/slide';
 import { useMisOficios } from 'hooks/useMisOficios';
 
-const Cursos: NextPage = () => {
+const CursosCreados: NextPage = () => {
     const { push } = useRouter();
     const handleClick = () => {
         push('/oficios');
@@ -23,7 +23,7 @@ const Cursos: NextPage = () => {
         <>
             <Header></Header>
             <div className='container mx-auto px-6 md:px-10'>
-                <JobsSection tittle='Tus cursos'>
+                <JobsSection tittle='Tus cursos creados'>
                     {isLoading && (
                         <span className='text-xl font-bold text-white'>
                             Cargando...
@@ -32,7 +32,7 @@ const Cursos: NextPage = () => {
                     {jobs.length === 0 && (
                         <div className='container md:my-8 md:pt-8 my-8 pt-4 mx-auto'>
                             <span className='text-4xl font-bold text-white'>
-                                Aún no posees cursos
+                                Aún no posees cursos creados
                             </span>
                         </div>
                     )}
@@ -49,9 +49,11 @@ const Cursos: NextPage = () => {
                     <Button
                         appearance='amber'
                         size='medium'
-                        onClick={handleClick}
+                        onClick={()=>(
+                            push('/nuevoOficio')
+                        )}
                     >
-                        ¡Explora más cursos!
+                        ¡Crea más cursos!
                     </Button>
                 </div>
             </div>
@@ -59,4 +61,4 @@ const Cursos: NextPage = () => {
     );
 };
 
-export default Cursos;
+export default CursosCreados;

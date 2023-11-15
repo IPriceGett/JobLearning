@@ -14,7 +14,7 @@ const Cursos: NextPage = () => {
         <>
             <Header></Header>
             <div className='container mx-auto my-4 px-4 md:px-10'>
-                <JobsSection tittle='Oficios más populares'>
+                <JobsSection tittle='Cursos más populares'>
                     {isLoading && (
                         <span className='text-xl font-bold text-white'>
                             Cargando...
@@ -29,7 +29,7 @@ const Cursos: NextPage = () => {
                         <div className='h-10'></div>
                     </Slides>
                 </JobsSection>
-                <JobsSection tittle='Oficios en tendencia'>
+                <JobsSection tittle='Cursos en tendencia'>
                     {loading2 && (
                         <span className='text-xl font-bold text-white'>
                             Cargando...

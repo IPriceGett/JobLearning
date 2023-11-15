@@ -20,7 +20,7 @@ const busqueda = () => {
                 <div className='grid grip-rows-2 gap-y-2 my-6 md:my-10 justify-center md:justify-normal items-center'>
                     <div className='flex justify-center md:justify-normal'>
                         <span className='text-3xl font-bold text-white mb-4 '>
-                            Oficios para: {keyword}
+                            Cursos para: {keyword}
                         </span>
                     </div>
                     {isLoading && (
@@ -31,7 +31,7 @@ const busqueda = () => {
                     {jobs.length === 0 && (
                         <div className='container md:my-8 md:pt-8 my-8 pt-4 mx-auto'>
                             <span className='text-4xl font-bold text-white'>
-                                No encontramos oficios coincentes con tu búsqueda, intenta nuevamente!
+                                No se encontraron resultados asociados a tu búsqueda
                             </span>
                         </div>
                     )}

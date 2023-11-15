@@ -53,7 +53,7 @@ const header = (): JSX.Element => {
                                 push('/oficios');
                             }}
                         >
-                            Oficios
+                            Cursos
                         </a>
                         <a
                             className='cursor-pointer'
@@ -61,7 +61,7 @@ const header = (): JSX.Element => {
                                 push('/misOficios');
                             }}
                         >
-                            Mis oficios
+                            Mis Cursos
                         </a>
                         <a
                             className='cursor-pointer'
@@ -69,15 +69,15 @@ const header = (): JSX.Element => {
                                 push('/nuevoOficio');
                             }}
                         >
-                            Crear oficio
+                            Crear Curso
                         </a>
                         <a
                             className='cursor-pointer'
                             onClick={() => {
-                                push('/contacto');
+                                push('/oficiosCreados');
                             }}
                         >
-                            Contacto
+                            Cursos Creados
                         </a>
                         <a
                             className='cursor-pointer'
@@ -85,7 +85,7 @@ const header = (): JSX.Element => {
                                 cerrarSesion();
                             }}
                         >
-                            Cerrar sesion
+                            Cerrar sesión
                         </a>
                     </>
                 ) : (

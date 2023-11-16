@@ -36,6 +36,7 @@ const header = (): JSX.Element => {
         let rol = getRol();
         if (rol) setRol(rol);
     }, []);
+    console.log(rol)
 
     return (
         <header className='flex flex-row items-center w-full h-[60px] bg-[#333333] px-4 text-white font-normal'>
@@ -87,8 +88,35 @@ const header = (): JSX.Element => {
                     </a>
                 </>
                     
-                ) : rol === '1' ? (
+                ) : rol === '2' ? (
+                    <>
+                        <a
+                            className='cursor-pointer'
+                            onClick={() => {
+                                push('/usuariosMod');
+                            }}
+                        >
+                            Usuarios
+                        </a>
+                        <a
+                            className='cursor-pointer'
+                            onClick={() => {
+                                push('/solicitudesCursos');
+                            }}
+                        >
+                            Solicitudes
+                        </a>
+                        <a
+                            className='cursor-pointer'
+                            onClick={() => {
+                                cerrarSesion();
+                            }}
+                        >
+                            Cerrar sesión
+                        </a>
+                    </>
                     
+                ) : (
                     <>
                         <a
                             className='cursor-pointer'
@@ -131,33 +159,6 @@ const header = (): JSX.Element => {
                             Cerrar sesión
                         </a>
                     </>
-                ) : (
-                    <>
-                        <a
-                            className='cursor-pointer'
-                            onClick={() => {
-                                push('/usuariosMod');
-                            }}
-                        >
-                            Usuarios
-                        </a>
-                        <a
-                            className='cursor-pointer'
-                            onClick={() => {
-                                push('/solicitudesCursos');
-                            }}
-                        >
-                            Solicitudes
-                        </a>
-                        <a
-                            className='cursor-pointer'
-                            onClick={() => {
-                                cerrarSesion();
-                            }}
-                        >
-                            Cerrar sesión
-                        </a>
-                    </>
                 )}
             </div>
         </header>
@@ -165,3 +166,4 @@ const header = (): JSX.Element => {
 };
 
 export default header;
+

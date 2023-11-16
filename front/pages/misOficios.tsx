@@ -38,7 +38,7 @@ const Cursos: NextPage = () => {
                     <Slides>
                         {jobs.map((job, index: number) => (
                             <SwiperSlide key={index}>
-                                <Slide job={job}></Slide>
+                                <Slide job={job} tipo={'comprado'}></Slide>
                             </SwiperSlide>
                         ))}
                         <div className='h-10'></div>

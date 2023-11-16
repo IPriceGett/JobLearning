@@ -11,16 +11,24 @@ interface Job {
 
 interface SlideProps {
     job: Job;
+    tipo: string
 }
 
-const Slide: React.FC<SlideProps> = ({ job }) => {
+const Slide: React.FC<SlideProps> = ({ job, tipo }) => {
     const { push } = useRouter();
     // console.log(job);
+    const handleClick = (id: number) => {
+        if (tipo === 'creador') {
+            push('/vistaCursoCreador?id=' + id);
+        } else {
+            push('/previewCurso?id=' + job.id);
+        }
+    }
 
     return (
         <div
             onClick={() => {
-                push('/previewCurso?id=' + job.id);
+                handleClick(job.id)
             }}
         >
             <Card

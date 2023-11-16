@@ -27,8 +27,9 @@ const login = async (req, res, next) => {
                                         rol: results[0].rol_fk
                                     },
                                     secretKey,
-                                    { expiresIn: '5h' }
+                                    { expiresIn: '25h' }
                                 ),
+                                rol: results[0].rol_fk
                             });
                         } else {
                             console.log('Las contraseñas no coinciden');

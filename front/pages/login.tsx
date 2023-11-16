@@ -28,6 +28,7 @@ const Login: NextPage = () => {
         const data = await response.json();
         console.log("Response JSON:", data);
         localStorage.setItem("token", data.token);
+        localStorage.setItem("rol", data.rol);
         push("/");
       } else {
         console.log("Error:", response.status);

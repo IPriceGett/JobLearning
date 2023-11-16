@@ -18,6 +18,8 @@ route.get("/byOwner",validation.verifyToken, jobController.getByOwner);
 
 route.post("/byId",validation.verifyToken, jobController.getJob);
 
+route.post("/disable",validation.verifyToken, jobController.disableJob);
+
 route.delete("/delete/:id",validation.verifyToken, jobController.deleteJob);
 
 

@@ -105,7 +105,33 @@ const register = async (req, res, next) => {
     }
 };
 
+const list = async (req, res, next) => {
+    try{
+        db.query('SELECT * FROM user WHERE status_fk = 1 ', [], (error, results) => {
+            if (error) res.status(404).send('Error al obtener ofertas');
+            res.status(200).send(results);
+        });
+    }catch{
+        res.status(404).send('Error al obtener oficios');
+    }
+};
+
+const disableUser = async (req, res, next) => {
+    try{
+        var id = req.user.id;
+        // console.log(req.body);
+        db.query('UPDATE user SET status_fk = 2 WHERE id = ?', [id], (error, results) => {
+            if (error) res.status(404).send('Error al obtener ofertas');
+            res.status(200).send(results[0]);
+        });
+    }catch{
+        res.status(404).send('Error al obtener oficios');
+    }
+};
+
 module.exports = {
     register,
     login,
+    list,
+    disableUser
 };

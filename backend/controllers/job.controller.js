@@ -52,6 +52,19 @@ const getJob = async (req, res, next) => {
     }
 };
 
+const disableJob = async (req, res, next) => {
+    try{
+        var id = req.body.id;
+        // console.log(req.body);
+        db.query('UPDATE job SET state_fk = 3 WHERE id = ?', [id], (error, results) => {
+            if (error) res.status(404).send('Error al obtener ofertas');
+            res.status(200).send(results[0]);
+        });
+    }catch{
+        res.status(404).send('Error al obtener oficios');
+    }
+};
+
 const getJobByKey = async (req, res, next) => {
     try{
         var key = req.body.key;
@@ -139,5 +152,6 @@ module.exports = {
     deleteJob,
     getJobByKey,
     moderateJob,
-    moderateList
+    moderateList,
+    disableJob
 };

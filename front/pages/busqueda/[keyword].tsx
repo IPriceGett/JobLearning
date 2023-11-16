@@ -34,7 +34,7 @@ const busqueda = () => {
                             </span>
                         </div>
                     )}
-                    <JobsGrid jobs={jobs}></JobsGrid>
+                    <JobsGrid jobs={jobs} rol={1}></JobsGrid>
                 </div>  
             </div>
         </>  

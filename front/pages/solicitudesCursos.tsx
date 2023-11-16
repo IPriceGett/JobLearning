@@ -25,7 +25,7 @@ const busqueda = () => {
                     {jobs.length === 0 && (
                         <div className='container md:my-8 md:pt-8 my-8 pt-4 mx-auto'>
                             <span className='text-2xl font-bold text-white'>
-                                "Por el momento no hay solicitudes de cursos creados
+                                Por el momento no hay solicitudes de cursos creados
                             </span>
                         </div>
                     )}

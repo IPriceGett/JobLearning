@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getUser from 'utils/session';
+import {getUser, getRol} from 'utils/session';
 import { useRouter } from 'next/router';
 import SearchBar from 'components/generic/SearchBar';
 
@@ -14,6 +14,7 @@ const header = (): JSX.Element => {
 
     const cerrarSesion = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('rol');
         const currentPath = asPath;
 
         if (currentPath === '/') {
@@ -24,12 +25,19 @@ const header = (): JSX.Element => {
     };
 
     const [usuario, setUsuario] = useState('');
+    const [rol, setRol] = useState('');
 
     useEffect(() => {
         let user = getUser();
         if (user) setUsuario(user != null ? user : '');
     }, []);
-    
+
+    useEffect(() => {
+        let rol = getRol();
+        if (rol) setRol(rol);
+    }, []);
+    console.log(rol)
+
     return (
         <header className='flex flex-row items-center w-full h-[60px] bg-[#333333] px-4 text-white font-normal'>
             <div className='left flex items-center basis-7/12'>
@@ -52,7 +60,63 @@ const header = (): JSX.Element => {
             </div>
 
             <div className='right flex-row basis-5/12 justify-end lg:space-x-4 xl:space-x-8 hidden lg:flex'>
-                {usuario != '' ? (
+                {usuario === '' ? (
+                    <>
+                    {/* <a
+                        className='cursor-pointer'
+                        onClick={() => {
+                            push('/contacto');
+                        }}
+                    >
+                        Contacto
+                    </a> */}
+                    <a
+                        className='cursor-pointer'
+                        onClick={() => {
+                            push('/login');
+                        }}
+                    >
+                        Iniciar sesión
+                    </a>
+                    <a
+                        className='cursor-pointer'
+                        onClick={() => {
+                            push('/register');
+                        }}
+                    >
+                        Regístrarse
+                    </a>
+                </>
+                    
+                ) : rol === '2' ? (
+                    <>
+                        <a
+                            className='cursor-pointer'
+                            onClick={() => {
+                                push('/usuariosMod');
+                            }}
+                        >
+                            Usuarios
+                        </a>
+                        <a
+                            className='cursor-pointer'
+                            onClick={() => {
+                                push('/solicitudesCursos');
+                            }}
+                        >
+                            Solicitudes
+                        </a>
+                        <a
+                            className='cursor-pointer'
+                            onClick={() => {
+                                cerrarSesion();
+                            }}
+                        >
+                            Cerrar sesión
+                        </a>
+                    </>
+                    
+                ) : (
                     <>
                         <a
                             className='cursor-pointer'
@@ -95,33 +159,6 @@ const header = (): JSX.Element => {
                             Cerrar sesión
                         </a>
                     </>
-                ) : (
-                    <>
-                        {/* <a
-                            className='cursor-pointer'
-                            onClick={() => {
-                                push('/contacto');
-                            }}
-                        >
-                            Contacto
-                        </a> */}
-                        <a
-                            className='cursor-pointer'
-                            onClick={() => {
-                                push('/login');
-                            }}
-                        >
-                            Iniciar sesión
-                        </a>
-                        <a
-                            className='cursor-pointer'
-                            onClick={() => {
-                                push('/register');
-                            }}
-                        >
-                            Regístrarse
-                        </a>
-                    </>
                 )}
             </div>
         </header>
@@ -129,3 +166,4 @@ const header = (): JSX.Element => {
 };
 
 export default header;
+

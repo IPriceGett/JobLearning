@@ -3,7 +3,7 @@ import { getCreatedJobs} from 'services/jobs';
 import { Job } from 'types/types';
 
 
-export const useOficiosCredos = (): { jobs: Job[]; isLoading: boolean } => {
+export const useOficiosCreados = (): { jobs: Job[]; isLoading: boolean } => {
     const [jobs, setJobs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 

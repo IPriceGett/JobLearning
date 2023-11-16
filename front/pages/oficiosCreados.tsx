@@ -7,12 +7,12 @@ import { NextPage } from 'next';
 import { SwiperSlide } from 'swiper/react';
 import JobsSection from 'components/generic/JobsSection';
 import Slide from 'components/generic/slide';
-import { useOficiosCredos } from 'hooks/useOficiosCreados';
+import { useOficiosCreados } from 'hooks/useOficiosCreados';
 
 const CursosCreados: NextPage = () => {
     const { push } = useRouter();
 
-    const { jobs, isLoading } = useOficiosCredos();
+    const { jobs, isLoading } = useOficiosCreados();
 
     return (
         <>
@@ -34,7 +34,7 @@ const CursosCreados: NextPage = () => {
                     <Slides>
                         {jobs.map((job, index: number) => (
                             <SwiperSlide key={index}>
-                                <Slide job={job}></Slide>
+                                <Slide job={job} tipo={'creador'}></Slide>
                             </SwiperSlide>
                         ))}
                         <div className='h-10'></div>

@@ -1,6 +1,9 @@
-const getUser = () => {
+export const getUser = () => {
     const user = localStorage.getItem("token")
     return user
 }
 
-export default getUser
+export const getRol = () => {
+    const rol = localStorage.getItem("rol")
+    return rol
+}

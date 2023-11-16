@@ -6,25 +6,30 @@ import { NextPage } from 'next';
 
 const detalleCurso: NextPage = () => {
     const { push } = useRouter();
-    const [job, setJob] = useState({ price: 0, id: 0, name: '', description: '' });
+    const [job, setJob] = useState({
+        price: 0,
+        id: 0,
+        name: '',
+        description: '',
+    });
 
     const handleMod = async (value: number) => {
         try {
             const id = new URLSearchParams(window.location.search);
             const response = await fetch(
-                'http://localhost:5000/job/moderate',
+                'https://49c6-201-223-197-118.ngrok-free.app/job/moderate',
                 {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         authorization: localStorage.getItem('token'),
                     },
-                    body: JSON.stringify({ value: value, id: id.get('id')}),
+                    body: JSON.stringify({ value: value, id: id.get('id') }),
                 }
             );
 
             if (response.ok) {
-                alert('Éxito')
+                alert('Éxito');
                 push('/solicitudesCursos');
             } else {
                 console.log('Error:', response.status);
@@ -38,18 +43,21 @@ const detalleCurso: NextPage = () => {
         const fetchJob = async () => {
             const id = new URLSearchParams(window.location.search);
             console.log(id.get('id'));
-            const response = await fetch('http://localhost:5000/job/byId', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    authorization: localStorage.getItem('token'),
-                },
-                body: JSON.stringify({ id: id.get('id') }),
-            });
+            const response = await fetch(
+                'https://49c6-201-223-197-118.ngrok-free.app/job/byId',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        authorization: localStorage.getItem('token'),
+                    },
+                    body: JSON.stringify({ id: id.get('id') }),
+                }
+            );
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data)
+                console.log(data);
                 setJob(data);
             } else {
                 console.log('Error:', response.status);
@@ -86,26 +94,29 @@ const detalleCurso: NextPage = () => {
                     </div>
 
                     <div className='mod w-full'>
-                        <textarea className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='feedback'/>
+                        <textarea
+                            className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                            placeholder='feedback'
+                        />
                         <div className='flex items-center my-4 gap-2'>
-                                <Button
-                                    size='small'
-                                    appearance='green'
-                                    onClick={() => {
-                                        handleMod(1);
-                                    }}
-                                >
-                                    <p>Aceptar</p>
-                                </Button>
-                                <Button 
-                                    size='small' 
-                                    appearance='delete'
-                                    onClick={() => {
-                                        handleMod(2);
-                                    }}
-                                    >
-                                    Rechazar
-                                </Button>
+                            <Button
+                                size='small'
+                                appearance='green'
+                                onClick={() => {
+                                    handleMod(1);
+                                }}
+                            >
+                                <p>Aceptar</p>
+                            </Button>
+                            <Button
+                                size='small'
+                                appearance='delete'
+                                onClick={() => {
+                                    handleMod(2);
+                                }}
+                            >
+                                Rechazar
+                            </Button>
                         </div>
                     </div>
                 </div>

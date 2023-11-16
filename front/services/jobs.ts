@@ -1,7 +1,7 @@
-import { Job } from "types/types";
+import { Job } from 'types/types';
 
 export const getCreatedJobs = () => {
-    const url = 'http://localhost:5000/job/byOwner';
+    const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/byOwner';
     const options = {
         method: 'GET',
         headers: {
@@ -18,7 +18,7 @@ export const getCreatedJobs = () => {
 };
 
 export const getMyJobs = () => {
-    const url = 'http://localhost:5000/userjob/getJobs';
+    const url = 'https://49c6-201-223-197-118.ngrok-free.app/userjob/getJobs';
     const options = {
         method: 'GET',
         headers: {
@@ -35,8 +35,8 @@ export const getMyJobs = () => {
 };
 
 export const getJobSearch = async (keyword: string) => {
-    console.log('servicios',keyword)
-    const url = 'http://localhost:5000/job/search';
+    console.log('servicios', keyword);
+    const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/search';
     const options = {
         method: 'POST',
         headers: {
@@ -65,7 +65,7 @@ export const getJobSearch = async (keyword: string) => {
 };
 
 export const getJobsList = () => {
-    const url = 'http://localhost:5000/job/list';
+    const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/list';
     const options = {
         method: 'GET',
         headers: {
@@ -73,7 +73,7 @@ export const getJobsList = () => {
             authorization: localStorage.getItem('token'),
         },
     };
-    
+
     return fetch(url, options)
         .then((response) => response.json())
         .then((data) => {

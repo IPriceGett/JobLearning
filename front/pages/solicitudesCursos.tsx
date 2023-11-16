@@ -4,8 +4,10 @@ import { useJobsMod } from 'hooks/useMod';
 import React from 'react';
 
 const busqueda = () => {
-    const { jobs, isLoading } = useJobsMod('http://localhost:5000/job/moderate-list');
-    console.log(jobs)
+    const { jobs, isLoading } = useJobsMod(
+        'https://49c6-201-223-197-118.ngrok-free.app/job/moderate-list'
+    );
+    console.log(jobs);
 
     return (
         <>
@@ -25,15 +27,16 @@ const busqueda = () => {
                     {jobs.length === 0 && (
                         <div className='container md:my-8 md:pt-8 my-8 pt-4 mx-auto'>
                             <span className='text-2xl font-bold text-white'>
-                                Por el momento no hay solicitudes de cursos creados
+                                Por el momento no hay solicitudes de cursos
+                                creados
                             </span>
                         </div>
                     )}
                     <JobsGrid jobs={jobs} rol={2}></JobsGrid>
-                </div>  
+                </div>
             </div>
-        </>  
+        </>
     );
-}
+};
 
-export default busqueda
+export default busqueda;

@@ -15,7 +15,7 @@ const Cursos: NextPage = () => {
         push('/oficios');
     };
 
-    const url = 'http://localhost:5000/userjob/getJobs';
+    const url = 'https://49c6-201-223-197-118.ngrok-free.app/userjob/getJobs';
     const { jobs, isLoading } = useMisOficios();
 
     return (

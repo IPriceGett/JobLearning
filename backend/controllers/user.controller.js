@@ -10,28 +10,32 @@ const login = async (req, res, next) => {
             'SELECT * FROM user WHERE email = ?',
             [req.body.email],
             (error, results) => {
-                bcrypt.compare(pass, results[0].password, (err, result) => {
-                    if (err) {
-                        console.error('Error al comparar las contraseñas:', err);
-                        res.status(404).send();
-                    }
-                    if (result) {
-                        res.status(200).send({
-                            token: jwt.sign(
-                                {
-                                    id: results[0].id,
-                                    username: results[0].email,
-                                    name: results[0].name,
-                                },
-                                secretKey,
-                                { expiresIn: '5h' }
-                            ),
-                        });
-                    } else {
-                        console.log('Las contraseñas no coinciden');
-                        res.status(404).send();
-                    }
-                });
+                try{
+                    bcrypt.compare(pass, results[0].password, (err, result) => {
+                        if (err) {
+                            console.error('Error al comparar las contraseñas:', err);
+                            res.status(404).send();
+                        }
+                        if (result) {
+                            res.status(200).send({
+                                token: jwt.sign(
+                                    {
+                                        id: results[0].id,
+                                        username: results[0].email,
+                                        name: results[0].name,
+                                    },
+                                    secretKey,
+                                    { expiresIn: '5h' }
+                                ),
+                            });
+                        } else {
+                            console.log('Las contraseñas no coinciden');
+                            res.status(404).send();
+                        }
+                    });
+                }catch{
+                    res.status(404).send();
+                }
             }
         );
     }catch {

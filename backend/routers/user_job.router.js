@@ -7,6 +7,6 @@ route.post("/create",validation.verifyToken, postulationController.create);
 
 route.put("/delete",validation.verifyToken, postulationController.deletePostulation);
 
-route.get("/getJobs",validation.verifyToken, postulationController.getPostulations);
+route.post("/getJobs",validation.verifyToken, postulationController.getPostulations);
 
 module.exports = route

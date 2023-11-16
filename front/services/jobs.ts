@@ -3,7 +3,7 @@ import { Job } from "types/types";
 export const getCreatedJobs = () => {
     const url = 'http://localhost:5000/job/byOwner';
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),
@@ -20,7 +20,7 @@ export const getCreatedJobs = () => {
 export const getMyJobs = () => {
     const url = 'http://localhost:5000/userjob/getJobs';
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),
@@ -67,7 +67,7 @@ export const getJobSearch = async (keyword: string) => {
 export const getJobsList = () => {
     const url = 'http://localhost:5000/job/list';
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),

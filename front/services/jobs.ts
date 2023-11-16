@@ -3,7 +3,7 @@ import { Job } from 'types/types';
 export const getCreatedJobs = () => {
     const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/byOwner';
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),
@@ -20,7 +20,7 @@ export const getCreatedJobs = () => {
 export const getMyJobs = () => {
     const url = 'https://49c6-201-223-197-118.ngrok-free.app/userjob/getJobs';
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),
@@ -67,7 +67,7 @@ export const getJobSearch = async (keyword: string) => {
 export const getJobsList = () => {
     const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/list';
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),

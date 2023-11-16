@@ -2,7 +2,7 @@ import { Job } from "types/types";
 
 export const getJobsMod = (url: string) => {
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('token'),

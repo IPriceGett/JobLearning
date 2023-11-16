@@ -1,11 +1,10 @@
 import JobsGrid from 'components/generic/JobsGrid';
 import Header from 'components/shared/header';
-import { useGet } from 'hooks/useGet';
+import { useJobsMod } from 'hooks/useMod';
 import React from 'react';
 
 const busqueda = () => {
-
-    const { jobs, isLoading } = useGet();
+    const { jobs, isLoading } = useJobsMod('http://localhost:5000/job/moderate-list');
     console.log(jobs)
 
     return (
@@ -30,7 +29,7 @@ const busqueda = () => {
                             </span>
                         </div>
                     )}
-                    <JobsGrid jobs={jobs}></JobsGrid>
+                    <JobsGrid jobs={jobs} rol={2}></JobsGrid>
                 </div>  
             </div>
         </>  

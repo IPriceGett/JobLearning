@@ -16,9 +16,7 @@ const header = (): JSX.Element => {
         localStorage.removeItem('token');
         const currentPath = asPath;
 
-        // Comparar con '/' para determinar si ya estás en la página principal
         if (currentPath === '/') {
-            // Recargar la página si ya estás en la página principal
             reload();
         } else {
             push('/');
@@ -31,6 +29,7 @@ const header = (): JSX.Element => {
         let user = getUser();
         if (user) setUsuario(user != null ? user : '');
     }, []);
+    
     return (
         <header className='flex flex-row items-center w-full h-[60px] bg-[#333333] px-4 text-white font-normal'>
             <div className='left flex items-center basis-7/12'>

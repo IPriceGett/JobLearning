@@ -10,6 +10,7 @@ const login = async (req, res, next) => {
             'SELECT * FROM user WHERE email = ?',
             [req.body.email],
             (error, results) => {
+                if(results.length == 0) res.status(404).send();
                 try{
                     bcrypt.compare(pass, results[0].password, (err, result) => {
                         if (err) {

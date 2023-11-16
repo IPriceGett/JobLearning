@@ -24,6 +24,7 @@ const login = async (req, res, next) => {
                                         id: results[0].id,
                                         username: results[0].email,
                                         name: results[0].name,
+                                        rol: results[0].rol_fk
                                     },
                                     secretKey,
                                     { expiresIn: '5h' }

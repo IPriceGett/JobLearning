@@ -1,17 +1,16 @@
 import JobsGrid from 'components/generic/JobsGrid';
-import JobsSection from 'components/generic/JobsSection';
 import Header from 'components/shared/header';
 import { useFilter } from 'hooks/useFilter';
-import { useGet } from 'hooks/useGet';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 const busqueda = () => {
-    const router = useRouter();
-    const termino = router.query.termino;
-    const keyword = Array.isArray(termino) ? termino[0] : termino;
+    const router = useRouter()
+    const keyword = router.query.keyword;
+    console.log('page',keyword)
 
-    const { jobs, isLoading } = useGet();
+    const { jobs, isLoading } = useFilter(keyword);
+    console.log(jobs)
 
     return (
         <>
@@ -30,7 +29,7 @@ const busqueda = () => {
                     )}
                     {jobs.length === 0 && (
                         <div className='container md:my-8 md:pt-8 my-8 pt-4 mx-auto'>
-                            <span className='text-4xl font-bold text-white'>
+                            <span className='text-2xl font-bold text-white'>
                                 No se encontraron resultados asociados a tu búsqueda
                             </span>
                         </div>
@@ -43,3 +42,4 @@ const busqueda = () => {
 }
 
 export default busqueda
+

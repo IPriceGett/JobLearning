@@ -18,7 +18,6 @@ const Cursos: NextPage = () => {
     const url = 'http://localhost:5000/userjob/getJobs';
     const { jobs, isLoading } = useMisOficios();
 
-
     return (
         <>
             <Header></Header>

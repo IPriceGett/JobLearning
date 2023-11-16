@@ -7,17 +7,12 @@ import { NextPage } from 'next';
 import { SwiperSlide } from 'swiper/react';
 import JobsSection from 'components/generic/JobsSection';
 import Slide from 'components/generic/slide';
-import { useMisOficios } from 'hooks/useMisOficios';
+import { useOficiosCredos } from 'hooks/useOficiosCreados';
 
 const CursosCreados: NextPage = () => {
     const { push } = useRouter();
-    const handleClick = () => {
-        push('/oficios');
-    };
 
-    const url = 'http://localhost:5000/userjob/getJobs';
-    const { jobs, isLoading } = useMisOficios();
-
+    const { jobs, isLoading } = useOficiosCredos();
 
     return (
         <>
@@ -49,9 +44,7 @@ const CursosCreados: NextPage = () => {
                     <Button
                         appearance='amber'
                         size='medium'
-                        onClick={()=>(
-                            push('/nuevoOficio')
-                        )}
+                        onClick={() => push('/nuevoOficio')}
                     >
                         ¡Crea más cursos!
                     </Button>

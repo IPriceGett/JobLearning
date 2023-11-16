@@ -10,7 +10,7 @@ route.get("/list",validation.verifyToken, jobController.list);
 
 route.post("/search",validation.verifyToken, jobController.getJobByKey);
 
-route.post("/byOwner",validation.verifyToken, jobController.getByOwner);
+route.get("/byOwner",validation.verifyToken, jobController.getByOwner);
 
 route.post("/byId",validation.verifyToken, jobController.getJob);
 

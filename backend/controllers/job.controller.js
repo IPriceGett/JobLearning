@@ -15,17 +15,17 @@ const deleteJob = async (req, res, next) => {
 
 const getByOwner = async (req, res, next) => {
     try{
-        var id = req.body.userid;
+        var id = req.user.id;
         db.query('SELECT * FROM user WHERE ID = ?', [id], (error, results) => {
             if (error) res.status(404).send('Error al obtener oficios');
             if (results[0].Role == 1) {
-                db.query('SELECT * FROM offer', (error, results) => {
+                db.query('SELECT * FROM job', (error, results) => {
                     if (error) res.status(404).send('Error al obtener oficios');
                     res.status(200).send(results);
                 });
             } else {
                 db.query(
-                    'SELECT * FROM offer WHERE owner = ?',
+                    'SELECT * FROM job WHERE creator = ?',
                     [id],
                     (error, results) => {
                         if (error) res.status(404).send('Error al obtener oficios');
@@ -55,7 +55,7 @@ const getJob = async (req, res, next) => {
 const getJobByKey = async (req, res, next) => {
     try{
         var key = req.body.key;
-        console.log(key);
+        // console.log(key);
         db.query(`SELECT * FROM job WHERE name LIKE '%${key}%' or description LIKE '%${key}%'`, (error, results) => {
             if (error) res.status(404).send('Error al obtener ofertas');
             res.status(200).send(results);

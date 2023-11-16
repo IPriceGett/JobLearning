@@ -5,17 +5,17 @@ import { BiSearch } from 'react-icons/bi';
 import { useRouter } from 'next/navigation';
 
 const SearchBar = () => {
-    const { push } = useRouter();
+    const router = useRouter();
 
     const [keyword, setKeyword] = useState('');
 
     const handleChange = (e: any) => {
         setKeyword(e.target.value);
     };
-
+    
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        push(`/busqueda?termino=${encodeURIComponent(keyword)}`);
+        router.push('/busqueda/' + keyword);
         setKeyword('');
     };
 

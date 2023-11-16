@@ -65,6 +65,20 @@ const getJobByKey = async (req, res, next) => {
     }
 };
 
+const moderateJob = async (req, res, next) => {
+    try{
+        var value = req.body.value;
+        var id = req.body.id;
+        // console.log(key);
+        db.query(`UPDATE job SET state_fk = ${value} WHERE id = ${id}`, (error, results) => {
+            if (error) res.status(404).send('Error al obtener ofertas');
+            res.status(200).send(results);
+        });
+    }catch{
+        res.status(404).send('Error al moderar');
+    }
+};
+
 const list = async (req, res, next) => {
     try{
         var pass = req.body.pass;
@@ -112,4 +126,5 @@ module.exports = {
     getByOwner,
     deleteJob,
     getJobByKey,
+    moderateJob
 };

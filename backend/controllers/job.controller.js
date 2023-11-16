@@ -56,7 +56,7 @@ const getJobByKey = async (req, res, next) => {
     try{
         var key = req.body.key;
         // console.log(key);
-        db.query(`SELECT * FROM job WHERE name LIKE '%${key}%' or description LIKE '%${key}%'`, (error, results) => {
+        db.query(`SELECT * FROM job WHERE state_fk = 1 and name LIKE '%${key}%' or description LIKE '%${key}%'`, (error, results) => {
             if (error) res.status(404).send('Error al obtener ofertas');
             res.status(200).send(results);
         });

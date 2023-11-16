@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import SearchBar from 'components/generic/SearchBar';
 
 const header = (): JSX.Element => {
-    const { push } = useRouter();
+    const { push, reload, asPath } = useRouter();
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -14,7 +14,15 @@ const header = (): JSX.Element => {
 
     const cerrarSesion = () => {
         localStorage.removeItem('token');
-        push('/');
+        const currentPath = asPath;
+
+        // Comparar con '/' para determinar si ya estás en la página principal
+        if (currentPath === '/') {
+            // Recargar la página si ya estás en la página principal
+            reload();
+        } else {
+            push('/');
+        }
     };
 
     const [usuario, setUsuario] = useState('');
@@ -90,14 +98,14 @@ const header = (): JSX.Element => {
                     </>
                 ) : (
                     <>
-                        <a
+                        {/* <a
                             className='cursor-pointer'
                             onClick={() => {
                                 push('/contacto');
                             }}
                         >
                             Contacto
-                        </a>
+                        </a> */}
                         <a
                             className='cursor-pointer'
                             onClick={() => {
@@ -112,7 +120,7 @@ const header = (): JSX.Element => {
                                 push('/register');
                             }}
                         >
-                            Regístrate
+                            Regístrarse
                         </a>
                     </>
                 )}

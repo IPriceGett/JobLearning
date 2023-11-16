@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Header from 'components/shared/header';
-import Card from 'components/generic/card';
-import Circle from 'components/pages/index/circle';
-import Section from 'components/pages/index/section';
 import Button from '../components/generic/button';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';

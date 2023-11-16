@@ -8,6 +8,8 @@ route.post("/create",validation.verifyToken, jobController.create);
 
 route.get("/list",validation.verifyToken, jobController.list);
 
+route.get("/moderate-list",validation.verifyToken, jobController.moderateList);
+
 route.post("/search",validation.verifyToken, jobController.getJobByKey);
 
 route.post("/moderate",validation.verifyToken, jobController.moderateJob);

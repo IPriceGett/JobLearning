@@ -30,7 +30,7 @@ const nuevoOficio: NextPage = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Response JSON:', data);
-                push('/oficios');
+                push('/oficiosCreados');
             } else {
                 console.log('Error:', response.status);
             }

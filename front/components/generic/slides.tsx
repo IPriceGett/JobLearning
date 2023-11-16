@@ -16,11 +16,9 @@ interface SlideProps {
 }
 
 const Slides: React.FC<SlideProps> = ({ children }): JSX.Element => {
-    const { push } = useRouter();
-    // console.log(jobs);
 
     return (
-        <>
+        <div className='w-full'>
             <Swiper
                 className='mySwiper'
                 pagination={true}
@@ -53,7 +51,7 @@ const Slides: React.FC<SlideProps> = ({ children }): JSX.Element => {
             >
                 {children}
             </Swiper>
-        </>
+        </div>
     );
 };
 

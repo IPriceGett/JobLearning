@@ -11,7 +11,7 @@ interface Job {
 
 interface SlideProps {
     job: Job;
-    tipo: string
+    tipo: string;
 }
 
 const Slide: React.FC<SlideProps> = ({ job, tipo }) => {
@@ -20,15 +20,17 @@ const Slide: React.FC<SlideProps> = ({ job, tipo }) => {
     const handleClick = (id: number) => {
         if (tipo === 'creador') {
             push('/vistaCursoCreador?id=' + id);
+        } else if (tipo === 'comprado') {
+            push('/vistaCursoComprado?id=' + id);
         } else {
             push('/previewCurso?id=' + job.id);
         }
-    }
+    };
 
     return (
         <div
             onClick={() => {
-                handleClick(job.id)
+                handleClick(job.id);
             }}
         >
             <Card

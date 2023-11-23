@@ -131,10 +131,10 @@ const nuevoOficio: NextPage = () => {
                                             : 'border-gray-300'
                                     }`}
                                 >
-                                    <option value='' disabled selected>
+                                    <option value='' defaultValue={0} disabled>
                                         -Seleccione una categoría-
                                     </option>
-                                    <option value={1}>Carpinteria</option>
+                                    <option value={1}>Carpintería</option>
                                 </Field>
                                 <ErrorMessage
                                     name='category'
@@ -174,7 +174,7 @@ const nuevoOficio: NextPage = () => {
                                                         <div key={index}>
                                                             <Field
                                                                 name={`chapters[${index}]`}
-                                                                placeholder='Ingrese el link de YouTube del capitulo del curso'
+                                                                placeholder='Ingrese el link de YouTube del capítulo del curso'
                                                                 className={`w-full px-3 py-2 border rounded placeholder-gray-600 bg-[#8E8E8E] text-[#484B6E] ${
                                                                     touched.name &&
                                                                     errors.name

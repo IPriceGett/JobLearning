@@ -9,23 +9,20 @@ import { useRouter } from 'next/router';
 const usuariosMod: NextPage = () => {
     const { reload } = useRouter();
 
-    const url = 'https://49c6-201-223-197-118.ngrok-free.app/user/list';
+    const url = 'http://localhost:5000/user/list';
     const { users, isLoading } = usersListMod(url);
     // console.log(users)
 
     const handleClick = async (id: number) => {
         try {
-            const response = await fetch(
-                'https://49c6-201-223-197-118.ngrok-free.app/user/disable',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        authorization: localStorage.getItem('token'),
-                    },
-                    body: JSON.stringify({ id: id }),
-                }
-            );
+            const response = await fetch('http://localhost:5000/user/disable', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: localStorage.getItem('token'),
+                },
+                body: JSON.stringify({ id: id }),
+            });
 
             if (response.ok) {
                 reload();

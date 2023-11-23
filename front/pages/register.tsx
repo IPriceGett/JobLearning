@@ -22,7 +22,7 @@ const Register: NextPage = () => {
         delete values.confirmPassword;
         try {
             const response = await fetch(
-                'https://49c6-201-223-197-118.ngrok-free.app/user/register',
+                'http://localhost:5000/user/register',
                 {
                     method: 'POST',
                     headers: {

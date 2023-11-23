@@ -17,7 +17,7 @@ const detalleCurso: NextPage = () => {
         try {
             const id = new URLSearchParams(window.location.search);
             const response = await fetch(
-                'https://49c6-201-223-197-118.ngrok-free.app/userjob/create',
+                'http://localhost:5000/userjob/create',
                 {
                     method: 'POST',
                     headers: {
@@ -42,17 +42,14 @@ const detalleCurso: NextPage = () => {
         const fetchJob = async () => {
             const id = new URLSearchParams(window.location.search);
             console.log(id.get('id'));
-            const response = await fetch(
-                'https://49c6-201-223-197-118.ngrok-free.app/job/byId',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        authorization: localStorage.getItem('token'),
-                    },
-                    body: JSON.stringify({ id: id.get('id') }),
-                }
-            );
+            const response = await fetch('http://localhost:5000/job/byId', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: localStorage.getItem('token'),
+                },
+                body: JSON.stringify({ id: id.get('id') }),
+            });
 
             if (response.ok) {
                 const data = await response.json();

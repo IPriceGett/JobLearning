@@ -16,12 +16,13 @@ interface SlideProps {
 }
 
 const Slides: React.FC<SlideProps> = ({ children }): JSX.Element => {
-
     return (
         <div className='w-full'>
             <Swiper
                 className='mySwiper'
-                pagination={true}
+                pagination={{
+                    clickable: true,
+                }}
                 modules={[Pagination]}
                 grabCursor={true}
                 slidesPerView={1}

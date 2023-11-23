@@ -5,7 +5,7 @@ import React from 'react';
 
 const busqueda = () => {
     const { jobs, isLoading } = useJobsMod(
-        'https://49c6-201-223-197-118.ngrok-free.app/job/moderate-list'
+        'http://localhost:5000/job/moderate-list'
     );
     console.log(jobs);
 

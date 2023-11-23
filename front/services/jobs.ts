@@ -1,7 +1,7 @@
 import { Job } from 'types/types';
 
 export const getCreatedJobs = () => {
-    const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/byOwner';
+    const url = 'http://localhost:5000/job/byOwner';
     const options = {
         method: 'POST',
         headers: {
@@ -18,7 +18,7 @@ export const getCreatedJobs = () => {
 };
 
 export const getMyJobs = () => {
-    const url = 'https://49c6-201-223-197-118.ngrok-free.app/userjob/getJobs';
+    const url = 'http://localhost:5000/userjob/getJobs';
     const options = {
         method: 'POST',
         headers: {
@@ -36,7 +36,7 @@ export const getMyJobs = () => {
 
 export const getJobSearch = async (keyword: string) => {
     console.log('servicios', keyword);
-    const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/search';
+    const url = 'http://localhost:5000/job/search';
     const options = {
         method: 'POST',
         headers: {
@@ -65,7 +65,7 @@ export const getJobSearch = async (keyword: string) => {
 };
 
 export const getJobsList = () => {
-    const url = 'https://49c6-201-223-197-118.ngrok-free.app/job/list';
+    const url = 'http://localhost:5000/job/list';
     const options = {
         method: 'POST',
         headers: {

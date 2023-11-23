@@ -16,16 +16,13 @@ const Login: NextPage = () => {
     const handleSubmit = async (values) => {
         console.log(values);
         try {
-            const response = await fetch(
-                'https://49c6-201-223-197-118.ngrok-free.app/user/login',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(values),
-                }
-            );
+            const response = await fetch('http://localhost:5000/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(values),
+            });
 
             if (response.ok) {
                 const data = await response.json();
